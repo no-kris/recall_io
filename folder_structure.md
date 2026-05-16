@@ -12,4 +12,14 @@ base/
     ├── pyproject.toml
     ├── uv.lock
     └── ...
+  ├── frontend/src/
+    ├── assets/          # Static files (images, icons)
+    ├── components/      # Reusable UI elements (Buttons, Inputs, Cards)
+    ├── features/        # Feature-based logic (Self-contained)
+    │   ├── auth/        # Auth forms, context, or hooks
+    │   └── notes/       # Note saving form, search bar, list items
+    ├── hooks/           # Shared React hooks (e.g., useAuth, useDebounce)
+    ├── services/        # API calls to your backend (e.g., api.js)
+    ├── App.jsx          # Root component & routing
+    └── main.jsx         # App entry point
 ```
