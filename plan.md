@@ -1,7 +1,7 @@
 # Implementation Plan: Personal Knowledge Library
 
 ## Phase 1: Database Setup
-- [ ] **Connect to Neon/PostgreSQL:** Sets up the secure storage for the notes and their search data.
+- [x] **Connect to Neon/PostgreSQL:** Sets up the secure storage for the notes and their search data.
 - [ ] **Setup user auth:** Configure user authentication and session handling using Neon Auth.
 - [ ] **Turn on `pgvector`:** Enables the database to perform high-speed similarity searches on the notes.
 - [ ] **Create the notes table:** Sets up the structure for titles, text content, and vector embeddings.

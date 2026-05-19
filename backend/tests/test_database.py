@@ -1,12 +1,15 @@
+import pytest
 from sqlalchemy import text
 
 from app.database import db
 
 
-def test_db_connection_ping():
+@pytest.mark.asyncio
+async def test_db_connection_ping():
     """
     Ping the database to see if a connection can be made.
     """
-    with db.get_db_session() as session:
-        result = session.execute(text("SELECT 1")).scalar()
-        assert result == 1
+    async with db.get_db_session() as session:
+        result = await session.execute(text("SELECT 1"))
+        value = result.scalar()
+        assert value == 1

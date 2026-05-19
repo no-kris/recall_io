@@ -1,7 +1,6 @@
-from contextlib import contextmanager
+from contextlib import asynccontextmanager
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
 from app.config import Config, config
 
@@ -12,11 +11,19 @@ class Database:
     """
 
     def __init__(self, config: Config) -> None:
-        self.__engine = create_engine(config.db_url)
-        self.__session_factory = sessionmaker(bind=self.__engine)
+        self.__engine = create_async_engine(
+            config.db_url,
+            connect_args={
+                "ssl": "require",
+                "server_settings": {"channel_binding": "require"},
+            },
+        )
+        self.__session_factory = async_sessionmaker(
+            bind=self.__engine, expire_on_commit=False
+        )
 
-    @contextmanager
-    def get_db_session(self):
+    @asynccontextmanager
+    async def get_db_session(self):
         """
         Context manager that yields a database connection session.
         Raises RuntimeError if it encounters a connection error or a timeout error.
@@ -25,15 +32,15 @@ class Database:
         session = self.__session_factory()
         try:
             yield session
-            session.commit()
+            await session.commit()
         except ConnectionError as err:
-            session.rollback()
+            await session.rollback()
             raise RuntimeError(f"There was a problem connecting to the database: {err}")
         except TimeoutError:
-            session.rollback()
+            await session.rollback()
             raise RuntimeError("Database connection timed out.")
         finally:
-            session.close()
+            await session.close()
 
 
 db = Database(config)

@@ -33,7 +33,7 @@ class Config:
         """
         Construct the SQLAlchemy connection string.
         """
-        return f"postgresql://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOSTNAME}/{self.DB_NAME}?sslmode=require&channel_binding=require"
+        return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOSTNAME}/{self.DB_NAME}"
 
     def __repr__(self) -> str:
         """
