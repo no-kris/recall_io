@@ -12,16 +12,21 @@
 - [ ] **Set up FastAPI:** Initializes the server to handle incoming requests.
 - [ ] **Add text-to-vector tool:** Sets up the logic to convert text into searchable data.
 - [ ] **Manage state:** Ensure UI reflects user auth status.
-- [ ] **Add "save note" feature:** Stores new note along with its vector embedding.
-- [ ] **Add "search notes" feature:** Compares query to notes and returns the most relevant ones.
-- [ ] **Add "update note" feature:** Update existing note and ensure associated vectors are updated.
-- [ ] **Add "delete note" feature:** Delete existing note and ensure associated vector is deleted.
+- [ ] **Add "save note" route:** Stores new note along with its vector embedding.
+- [ ] **Add "search notes" route:** Compares query to notes and returns the most relevant ones.
+- [ ] **Add "update note" route:** Update existing note and ensure associated vectors are updated.
+- [ ] **Add "delete note" route:** Delete existing note and ensure associated vector is deleted.
+- [ ] **Add "Create User" route:** Implement endpoint to save new user profile via Neon Auth ID.
+- [ ] **Add "Update User" route:** Implement endpoint to update user profile info (username/email).
 - [ ] **Add relevance filter:** Ensures the search only returns notes that are actually similar to query, hiding irrelevant results.
+
 
 ## Phase 3: Frontend Development (React)
 - [ ] **Build "Save Note" screen:** A simple form to input and save knowledge.
 - [ ] **Add "Update Note" option:** Allow authenticated users to update an existing note.
 - [ ] **Add "Delete Note" option:** Allow authenticated users to delete an existing note.
+- [ ] **Build "Sign Up/User Profile" form:** Connect frontend to the "Create User" endpoint.
+- [ ] **Build "Edit Profile" screen:** Connect frontend to the "Update User" endpoint.
 - [ ] **Build "Library Search" screen:** A search box to query notes and view matching results.
 - [ ] **Implement result display:** Shows the titles and content of the most relevant notes found.
 - [ ] **Add "No results" feedback:** Tells you clearly when no notes match query.
