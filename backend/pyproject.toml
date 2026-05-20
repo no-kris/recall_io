@@ -11,6 +11,7 @@ dependencies = [
     "pydantic>=2.13.4",
     "pytest>=9.0.3",
     "pytest-asyncio>=1.3.0",
+    "pytest-parametrize>=1.6.0",
     "python-dotenv>=1.2.2",
     "sentence-transformers>=5.5.0",
     "sqlalchemy>=2.0.49",

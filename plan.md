@@ -5,6 +5,7 @@
 - [ ] **Setup user auth:** Configure user authentication and session handling using Neon Auth.
 - [ ] **Turn on `pgvector`:** Enables the database to perform high-speed similarity searches on the notes.
 - [ ] **Create the notes table:** Sets up the structure for titles, text content, and vector embeddings.
+- [x] **Create the users table:** Sets up the structure for user sign up.
 - [ ] **Speed up searches:** Adds an HNSW index to keep search results instant as library grows.
 
 ## Phase 2: Backend Development (FastAPI)
@@ -24,6 +25,7 @@
 - [ ] **Build "Library Search" screen:** A search box to query notes and view matching results.
 - [ ] **Implement result display:** Shows the titles and content of the most relevant notes found.
 - [ ] **Add "No results" feedback:** Tells you clearly when no notes match query.
+- [ ] **Configure auth rules:** Configure password complexity and security policies in Neon Auth (using `auth.ts`).
 
 ## Phase 4: Integration & Deployment
 - [ ] **Launch the backend:** Deploys the search engine API to a container-friendly environment.

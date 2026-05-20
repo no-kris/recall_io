@@ -84,6 +84,7 @@ dependencies = [
     { name = "pydantic" },
     { name = "pytest" },
     { name = "pytest-asyncio" },
+    { name = "pytest-parametrize" },
     { name = "python-dotenv" },
     { name = "sentence-transformers" },
     { name = "sqlalchemy" },
@@ -98,6 +99,7 @@ requires-dist = [
     { name = "pydantic", specifier = ">=2.13.4" },
     { name = "pytest", specifier = ">=9.0.3" },
     { name = "pytest-asyncio", specifier = ">=1.3.0" },
+    { name = "pytest-parametrize", specifier = ">=1.6.0" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "sentence-transformers", specifier = ">=5.5.0" },
     { name = "sqlalchemy", specifier = ">=2.0.49" },
@@ -901,6 +903,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/90/2c/8af215c0f776415f3590cac4f9086ccefd6fd463befeae41cd4d3f193e5a/pytest_asyncio-1.3.0.tar.gz", hash = "sha256:d7f52f36d231b80ee124cd216ffb19369aa168fc10095013c6b014a34d3ee9e5", size = 50087, upload-time = "2025-11-10T16:07:47.256Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e5/35/f8b19922b6a25bc0880171a2f1a003eaeb93657475193ab516fd87cac9da/pytest_asyncio-1.3.0-py3-none-any.whl", hash = "sha256:611e26147c7f77640e6d0a92a38ed17c3e9848063698d5c93d5aa7aa11cebff5", size = 15075, upload-time = "2025-11-10T16:07:45.537Z" },
+]
+
+[[package]]
+name = "pytest-parametrize"
+version = "1.6.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pytest" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/85/b3/1eecbc7cd2fd54f18e9b27e0b5bacac22ed69af125b31c5144efcfe12a39/pytest_parametrize-1.6.0.tar.gz", hash = "sha256:d647c415bd5be28130499f529b6424cf49fd6b5bf2581ffed94300abc01f0c2a", size = 3810, upload-time = "2026-04-03T13:48:08.93Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/95/e3/0722a455d5e3ba8d9fa29f2e314cf3feffa060c4e78170f5576c9915624b/pytest_parametrize-1.6.0-py3-none-any.whl", hash = "sha256:775d7367369840eaa0358c03e869464e0627b39dd94750d242e880e6f081dab3", size = 4535, upload-time = "2026-04-03T13:48:09.606Z" },
 ]
 
 [[package]]
