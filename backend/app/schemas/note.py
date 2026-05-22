@@ -19,6 +19,7 @@ class NoteUpdate(BaseModel):
 
 class NotePublic(BaseModel):
     id: int
+    author_id: int
     title: str
     content: str
 

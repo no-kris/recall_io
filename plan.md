@@ -3,8 +3,8 @@
 ## Phase 1: Database Setup
 - [x] **Connect to Neon/PostgreSQL:** Sets up the secure storage for the notes and their search data.
 - [ ] **Setup user auth:** Configure user authentication and session handling using Neon Auth.
-- [ ] **Turn on `pgvector`:** Enables the database to perform high-speed similarity searches on the notes.
-- [ ] **Create the notes table:** Sets up the structure for titles, text content, and vector embeddings.
+- [x] **Turn on `pgvector`:** Enables the database to perform high-speed similarity searches on the notes.
+- [x] **Create the notes table:** Sets up the structure for titles, text content, and vector embeddings.
 - [x] **Create the users table:** Sets up the structure for user sign up.
 - [ ] **Speed up searches:** Adds an HNSW index to keep search results instant as library grows.
 

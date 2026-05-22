@@ -5,8 +5,9 @@ from app.schemas.note import NoteCreate, NotePublic, NoteUpdate
 
 # Mock the SQLAlchemy model
 class MockNote:
-    def __init__(self, id, title, content):
+    def __init__(self, id, author_id, title, content):
         self.id = id
+        self.author_id = author_id
         self.title = title
         self.content = content
 
@@ -19,7 +20,7 @@ class MockNote:
     ],
 )
 def test_note_public_blurb_generation(content, expected_blurb):
-    mock = MockNote(id=1, title="Test Title", content=content)
+    mock = MockNote(id=1, author_id=1, title="Test Title", content=content)
     public = NotePublic.model_validate(mock)
     assert public.blurb == expected_blurb
 

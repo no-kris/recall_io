@@ -1,7 +1,27 @@
 import pytest
 from pydantic import ValidationError
 
-from app.schemas.user import UserCreate, UserUpdate
+from app.schemas.user import UserCreate, UserPublic, UserUpdate
+
+
+class MockUser:
+    def __init__(self, id: int, username: str, email: str, notes_count: int):
+        self.id = id
+        self.username = username
+        self.email = email
+        self.notes_count = notes_count
+
+
+def test_user_public_notes_count_mapping():
+
+    mock = MockUser(id=1, username="testuser", email="test@example.com", notes_count=14)
+
+    public_user = UserPublic.model_validate(mock)
+
+    assert public_user.id == 1
+    assert public_user.username == "testuser"
+    assert public_user.email == "test@example.com"
+    assert public_user.notes_count == 14
 
 
 @pytest.mark.parametrize(
