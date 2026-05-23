@@ -32,7 +32,6 @@ class Database:
         session = self.__session_factory()
         try:
             yield session
-            await session.commit()
         except ConnectionError as err:
             await session.rollback()
             raise RuntimeError(f"There was a problem connecting to the database: {err}")
