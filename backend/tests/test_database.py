@@ -1,7 +1,7 @@
 import pytest
 from sqlalchemy import text
 
-from app.database import db
+from app.core.database import db
 
 
 @pytest.mark.asyncio

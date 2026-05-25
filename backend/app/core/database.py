@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
-from app.config import Config, config
+from app.core.config import Config, config
 
 
 class Database:

@@ -4,11 +4,11 @@ base/
     ├── app/
     │   ├── __init__.py
     │   ├── main.py           # Application entry point
-    │   ├── config.py         # Environment variables & DB settings
-    │   ├── database.py       # Database engine/pool setup
+    │   ├── core/             # Project dependencies and configurations
     │   ├── models/           # SQLAlchemy/SQLModel definitions (Notes table)
     │   ├── routes/           # API endpoints (e.g., notes.py, auth.py)
-    │   └── services/         # Business logic (e.g., embedding generation)
+    │   ├── services/         # Business logic (e.g., embedding generation)
+    │   └── repositories/     # DB queries (data layer)
     ├── pyproject.toml
     ├── uv.lock
     └── ...

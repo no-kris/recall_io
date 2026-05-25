@@ -1,4 +1,4 @@
-from app.config import config
+from app.core.config import config
 
 
 def test_config_password_masking():
