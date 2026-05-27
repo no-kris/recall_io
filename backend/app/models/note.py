@@ -22,7 +22,7 @@ class Note(Base):
     author: Mapped["User"] = relationship(back_populates="notes")
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     content: Mapped[str] = mapped_column(Text, nullable=False)
-    embedding: Mapped[Vector] = mapped_column(Vector(1536), nullable=True)
+    embedding: Mapped[Vector] = mapped_column(Vector(384), nullable=True)
     created_at: Mapped[datetime] = mapped_column(server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(
         server_default=func.now(), onupdate=func.now()

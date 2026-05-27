@@ -1,6 +1,5 @@
 from typing import Optional
 
-from pgvector.sqlalchemy import Vector
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -42,11 +41,13 @@ class NoteRepository:
         await self.session.flush()
         return note
 
-    async def update_note_embedding(self, note: Note, embedding: Vector) -> Note:
+    async def update_note_embedding(self, note: Note, embedding: list[float]) -> Note:
         """
         Save the note vector embedding to the database.
         """
-        note.embedding = embedding
+        # Using type ignore because SQLAlchemy will convert the embedding
+        # to a Vector type.
+        note.embedding = embedding  # type:ignore
         await self.session.flush()
         return note
 

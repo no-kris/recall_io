@@ -9,6 +9,7 @@ base/
     │   ├── routes/           # API endpoints (e.g., notes.py, auth.py)
     │   ├── services/         # Business logic (e.g., embedding generation)
     │   └── repositories/     # DB queries (data layer)
+    ├── tests/                # Unit tests (pytest)
     ├── pyproject.toml
     ├── uv.lock
     └── ...

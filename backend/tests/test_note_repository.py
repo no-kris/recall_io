@@ -73,12 +73,12 @@ async def test_update_note_with_embedding(
     test_db_session.add(note)
     await test_db_session.flush()
 
-    fake_embedding = [0.1] * 1536
+    fake_embedding = [0.1] * 384
 
     updated = await note_repository.update_note_embedding(note, fake_embedding)  # type:ignore
 
     assert updated.embedding is not None
-    assert len(updated.embedding) == 1536  # type:ignore
+    assert len(updated.embedding) == 384  # type:ignore
 
 
 @pytest.mark.asyncio

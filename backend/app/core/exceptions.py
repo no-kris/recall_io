@@ -10,6 +10,12 @@ class UserNotFoundError(AppException):
     pass
 
 
+class NoteNotFoundError(AppException):
+    """Raised when a note object cannot be found."""
+
+    pass
+
+
 class UserAlreadyExistsError(AppException):
     """Raised when attempting to create a user that already exists."""
 
