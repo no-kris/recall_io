@@ -22,6 +22,11 @@ class Database:
             bind=self.__engine, expire_on_commit=False
         )
 
+    @property
+    def engine(self):
+        """Get the engine for table creation."""
+        return self.__engine
+
     @asynccontextmanager
     async def get_db_session(self):
         """

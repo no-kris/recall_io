@@ -22,7 +22,7 @@ class UserAlreadyExistsError(AppException):
     pass
 
 
-class UnauthorizedAction(AppException):
-    """Raised when attempting to perform an unauthorized action."""
+class MissingNeededValuesError(AppException):
+    """Raised when needed values are missing."""
 
     pass

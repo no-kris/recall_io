@@ -1,5 +1,8 @@
 from app.core.dependencies import generate_embeddings
-from app.core.exceptions import NoteNotFoundError
+from app.core.exceptions import (
+    MissingNeededValuesError,
+    NoteNotFoundError,
+)
 from app.models.note import Note
 from app.repositories.note_repository import NoteRepository
 
@@ -8,10 +11,23 @@ class NoteService:
     def __init__(self, repository: NoteRepository) -> None:
         self.repository = repository
 
+    async def get_note(self, note_id: int):
+        """
+        Return a note matching the note id parameter.
+        """
+        note = await self.repository.get_note_by_id(note_id)
+        if not note:
+            raise NoteNotFoundError("Note does not exist.")
+
+        return note
+
     async def create_note(self, author_id: int, title: str, content: str) -> Note:
         """
         Create a new note and generate the vector embedding for it.
         """
+        if not title or not content:
+            raise MissingNeededValuesError("Check for missing values.")
+
         embedding = await generate_embeddings(title, content)
         note = Note(
             title=title, content=content, author_id=author_id, embedding=embedding
