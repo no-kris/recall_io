@@ -27,6 +27,7 @@ class Config:
     DB_PASSWORD: str = get_env("DB_PASSWORD")
     DB_HOSTNAME: str = get_env("DB_HOSTNAME")
     DB_NAME: str = get_env("DB_NAME")
+    NEON_AUTH: str = get_env("NEON_AUTH_URL")
 
     @property
     def db_url(self) -> str:

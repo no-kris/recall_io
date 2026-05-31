@@ -75,7 +75,7 @@ async def test_update_note_with_embedding(
 
     fake_embedding = [0.1] * 384
 
-    updated = await note_repository.update_note_embedding(note, fake_embedding)  # type:ignore
+    updated = await note_repository.update_note_embedding(note, fake_embedding)
 
     assert updated.embedding is not None
     assert len(updated.embedding) == 384  # type:ignore

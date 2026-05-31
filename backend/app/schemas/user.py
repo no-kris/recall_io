@@ -25,6 +25,5 @@ class UserPublic(BaseModel):
     id: int
     username: str
     email: EmailStr
-    notes_count: int
 
     model_config = ConfigDict(from_attributes=True)

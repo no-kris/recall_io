@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routes import api_router
 
 app = FastAPI(
-    title="RecalIO API", description="Backend API for RecalIO", version="1.0.0"
+    title="Recall IO API", description="Backend API for Recall IO", version="1.0.0"
 )
 
 app.add_middleware(
