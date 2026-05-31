@@ -64,10 +64,14 @@ async def update_profile(
     user_update: UserUpdate,
     service: UserService = Depends(get_user_service),
     session: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
     """
     Update user profile.
     """
+    if current_user.id != user_id:
+        raise HTTPException(status_code=403, detail="Unauthorized")
+
     try:
         user = await service.update_user_profile(
             user_id, **user_update.model_dump(exclude_none=True)
@@ -83,10 +87,14 @@ async def delete_user(
     user_id: int,
     service: UserService = Depends(get_user_service),
     session: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
     """
     Delete user from database.
     """
+    if current_user.id != user_id:
+        raise HTTPException(status_code=403, detail="Unauthorized")
+
     try:
         await service.delete_user_account(user_id)
         await session.commit()
