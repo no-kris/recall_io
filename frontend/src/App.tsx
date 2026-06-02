@@ -1,4 +1,6 @@
 import { useState, type ChangeEvent } from "react";
+import "./styles/reset.css";
+import "./styles/app.css";
 
 interface Note {
   id: number;
@@ -40,6 +42,8 @@ const mockNotes: Note[] = [
 function App() {
   const [notes, setNotes] = useState(mockNotes);
   const [searchTerm, setSearchTerm] = useState("");
+  const [noteTitle, setNoteTitle] = useState("");
+  const [isSignedIn, setIsSignedIn] = useState(true);
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.currentTarget.value);
@@ -47,46 +51,116 @@ function App() {
 
   return (
     <>
-      <h1>Recall IO</h1>
-      <SearchInput
-        inputAttr={{
-          searchTerm: searchTerm,
-          onSearch: handleSearch,
-          id: "search",
-          type: "text",
-          placeholder: "Search...",
-        }}
-        isFocused
-      />
-      <List list={notes} />
+      <div className="header">
+        <h1>Recall IO</h1>
+        <button>{isSignedIn ? "Log Out" : "Sign In/Up"}</button>
+      </div>
+      <div className="main-container">
+        <div className="column">
+          <h2>Add Note</h2>
+          <CustomInput
+            inputAttr={{
+              value: noteTitle,
+              onHandler: handleSearch,
+              id: "title",
+              type: "text",
+              placeholder: "Title your note...",
+              label: "Title",
+              classname: "note-title",
+            }}
+            isFocused
+          />
+          <MarkdownTextArea
+            areaAttr={{
+              placeholder: "Content... Markdown Supported",
+              label: "Content",
+              rows: 8,
+              cols: 30,
+              id: "content",
+              classname: "markdown-text-area",
+            }}
+            isFocused
+          />
+        </div>
+        <div className="column column-scrollable">
+          <div className="search-container">
+            <CustomInput
+              inputAttr={{
+                value: searchTerm,
+                onHandler: handleSearch,
+                id: "search",
+                type: "text",
+                placeholder: "Search...",
+                label: "",
+                classname: "search-bar",
+              }}
+              isFocused
+            />
+            <button className="search-button">Find</button>
+          </div>
+          <List list={notes} />
+        </div>
+      </div>
     </>
   );
 }
 
-type SearchProps = {
-  inputAttr: {
+type TextAreaProps = {
+  areaAttr: {
     placeholder: string;
+    label: string;
+    rows: number;
+    cols: number;
     id: string;
-    type?: string;
-    searchTerm: string;
-    onSearch: (event: ChangeEvent<HTMLInputElement>) => void;
+    classname: string;
   };
   isFocused: boolean;
 };
 
-function SearchInput({ inputAttr, isFocused }: SearchProps) {
+function MarkdownTextArea({ areaAttr, isFocused }: TextAreaProps) {
+  return (
+    <>
+      <label>{areaAttr.label}</label>
+      <textarea
+        placeholder={areaAttr.placeholder}
+        id={areaAttr.id}
+        rows={areaAttr.rows}
+        cols={areaAttr.cols}
+        className={areaAttr.classname}
+        autoFocus={isFocused}
+      />
+    </>
+  );
+}
+
+type InputProps = {
+  inputAttr: {
+    placeholder: string;
+    id: string;
+    type?: string;
+    value: string;
+    label: string;
+    classname: string;
+    onHandler: (event: ChangeEvent<HTMLInputElement>) => void;
+  };
+  isFocused: boolean;
+};
+
+function CustomInput({ inputAttr, isFocused }: InputProps) {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    inputAttr.onSearch(event);
+    inputAttr.onHandler(event);
   };
 
   return (
     <>
-      <div className="search-container">
+      <label>{inputAttr.label}</label>
+      <div className="input-container">
         <input
           placeholder={inputAttr.placeholder}
           id={inputAttr.id}
           type={inputAttr.type || "text"}
-          value={inputAttr.searchTerm}
+          value={inputAttr.value}
+          className={inputAttr.classname}
           onChange={handleChange}
           autoFocus={isFocused}
         />
@@ -115,11 +189,11 @@ type ItemProps = {
 
 function Item({ item }: ItemProps) {
   return (
-    <>
-      <span>{item.title}</span>
+    <div className="note-item">
+      <h3>{item.title}</h3>
       <p>{item.content}</p>
       <span>{item.created_at}</span>
-    </>
+    </div>
   );
 }
 
