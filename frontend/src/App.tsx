@@ -55,6 +55,7 @@ function App() {
         <h1>Recall IO</h1>
         <button>{isSignedIn ? "Log Out" : "Sign In/Up"}</button>
       </div>
+<<<<<<< HEAD
       <div className="search-container">
         <CustomInput
           inputAttr={{
@@ -70,6 +71,8 @@ function App() {
         />
         <button className="search-button">Find</button>
       </div>
+=======
+>>>>>>> 270c6dafb81b437cd2c06819d427a1964f2b217a
       <div className="main-container">
         <div className="column">
           <h2>Add Note</h2>
@@ -89,7 +92,11 @@ function App() {
             areaAttr={{
               placeholder: "Content... Markdown Supported",
               label: "Content",
+<<<<<<< HEAD
               rows: 10,
+=======
+              rows: 8,
+>>>>>>> 270c6dafb81b437cd2c06819d427a1964f2b217a
               cols: 30,
               id: "content",
               classname: "markdown-text-area",
@@ -98,6 +105,24 @@ function App() {
           />
         </div>
         <div className="column column-scrollable">
+<<<<<<< HEAD
+=======
+          <div className="search-container">
+            <CustomInput
+              inputAttr={{
+                value: searchTerm,
+                onHandler: handleSearch,
+                id: "search",
+                type: "text",
+                placeholder: "Search...",
+                label: "",
+                classname: "search-bar",
+              }}
+              isFocused
+            />
+            <button className="search-button">Find</button>
+          </div>
+>>>>>>> 270c6dafb81b437cd2c06819d427a1964f2b217a
           <List list={notes} />
         </div>
       </div>

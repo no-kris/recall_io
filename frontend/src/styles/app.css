@@ -61,9 +61,15 @@ body {
   grid-template-columns: 1fr;
   gap: var(--spacing-lg);
   max-width: 120rem;
+<<<<<<< HEAD
   margin: var(--spacing-md) auto;
   /*padding: var(--spacing-lg);*/
   height: calc(100vh - 17rem);
+=======
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  height: calc(100vh - 15rem);
+>>>>>>> 270c6dafb81b437cd2c06819d427a1964f2b217a
 }
 
 @media (min-width: 768px) {
@@ -163,7 +169,11 @@ label {
 }
 
 .markdown-text-area {
+<<<<<<< HEAD
   resize: none;
+=======
+  resize: vertical;
+>>>>>>> 270c6dafb81b437cd2c06819d427a1964f2b217a
   min-height: 20rem;
 }
 
