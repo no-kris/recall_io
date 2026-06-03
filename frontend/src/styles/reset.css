@@ -1,0 +1,32 @@
+/*
+  Remove all default styles from everything,
+  except for the display property and specific media elements.
+*/
+*:where(
+  :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
+) {
+  all: unset;
+  display: revert;
+}
+
+/* Fix preferred sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Restore focus indicators for accessibility */
+:focus {
+  outline: revert;
+}
+
+ol,
+ul,
+li {
+  list-style-type: none;
+}
+
+button {
+  cursor: pointer;
+}
